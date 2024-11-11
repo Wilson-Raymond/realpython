@@ -6,10 +6,8 @@ from flask import Flask
 # create the application object
 app = Flask(__name__)
 
-
-
 # use the decorator pattern to
-# link the vieww function to a url
+# link the view function to a URL
 @app.route('/')
 @app.route('/hello')
 def hello_world():
@@ -26,7 +24,7 @@ def int_type(value):
     print(value + 1)
     return "correct"
 
-# dynamic route with an float type
+# dynamic route with a float type
 @app.route("/float/<float:value>")
 def float_type(value):
     print(value + 1)
@@ -37,16 +35,6 @@ def float_type(value):
 def path_type(value):
     print(value)
     return "correct"
-
-# dynamic route with explicit status code
-@app.route("/name/<name>")
-def index(name):
-    if name.lower() == "michael":
-        return f"Hello, {name}"
-    else:
-        return "Not Found", 404
-
-
 
 # start the development server using the run() method
 if __name__ == "__main__":
